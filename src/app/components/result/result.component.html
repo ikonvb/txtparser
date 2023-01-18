@@ -1,0 +1,35 @@
+<main class="container">
+  <div class="btn-group" role="group">
+    <button
+      type="button"
+      class="btn btn-outline-secondary mb-2"
+      (click)="clearTable()"
+    >
+      Clear
+    </button>
+    <button type="button" class="btn btn-outline-secondary mb-2">Copy</button>
+    <button type="button" class="btn btn-outline-secondary mb-2">
+      Download
+    </button>
+  </div>
+  <!-- <div class="table-responsive text-nowrap"></div> -->
+  <div class="bg-light p-5 rounded table-responsive text-nowrap">
+    <label for="floatingTextarea"><span class="fw-bold">Result</span></label>
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="th-sm">#</th>
+          <th class="th-sm">Word</th>
+          <th class="th-sm">Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr #tableWord *ngFor="let word of mapToShow | keyvalue; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ word.key }}</td>
+          <td>{{ word.value }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
